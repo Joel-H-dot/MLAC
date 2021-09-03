@@ -6,18 +6,31 @@ the Presence of Electrical Conductivity Variations.
 
 # Overview
 
-MVPR is [available on PyPI][pypi], and can be installed via
+MLAC is [available on PyPI][pypi], and can be installed via
 ```none
-pip install MVPR
+pip install MLAC
 ```
-This package fits a multi-variable polynomial equation to a set of data using cross validation. The solution is regularised using truncated singular value decomposition of the Moore-Penrose pseudo-inverse, where the truncation point is found using a golden section search. It is suitable for ill-posed problems, and for preventing over-fitting to noise. Tikohnov regularisation may be included in a future release if there is sufficient demand.   
+This package provides the functionality to quickly compare seventypes of feature extraction algorithms and seven types of classifiers. In total there are 49 unique algorithms which can be defined from these FE and classifier algorithms, using the Sci-Kit learn pipeline and grid search functions. Included are two neural networks: an auto-encoder and vanilla fully connected network. The papermeters in these are found using the HyperBand algorithm, provided in the KErasTuner package. When a neural network is included in the pipeline, an initial search is perfomed over the hyper-parameter space using a low number of epochs, patience and factor; this is increased at the end of the search to provide a finer search. This process faciliates quickly determinng a good set of hyper-parameters. Included is the ability to see the different hyper-parameter values selected, and whether these are at the bounds of the defined search.  
 
 
 [pypi]:  https://pypi.org/project/MVPR/
 
 # Example
+Import data:
+```
+data_input = np.random.randn(3000, 1)
+ind = np.where(data_input < 0)
+data_output = np.zeros(np.shape(data_input))
+data_input = data_input + np.random.randn(3000, 1)*0.2 # add noise
+data_output[ind] = 1
 
-consider a 3-D set of data, plotted as follows:
+test_input = np.random.randn(300, 1)
+ind = np.where(test_input < 0)
+test_output = np.zeros(np.shape(test_input))
+test_input = test_input + np.random.randn(300, 1)* 0.2 # add noise
+test_output[ind] = 1
+```
+This looks like:
 
 ![image](https://user-images.githubusercontent.com/60707891/115008840-87322380-9ea3-11eb-85b3-778c06a3db9b.png)
 
