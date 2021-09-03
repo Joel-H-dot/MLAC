@@ -31,12 +31,7 @@ test_input = test_input + np.random.randn(300, 1)* 0.2 # add noise
 test_output[ind] = 1
 ```
 This looks like:
-
-![image](https://user-images.githubusercontent.com/60707891/115008840-87322380-9ea3-11eb-85b3-778c06a3db9b.png)
-
-and another set:
-
-![image](https://user-images.githubusercontent.com/60707891/115008872-91ecb880-9ea3-11eb-9ef9-e0dc9d2537b6.png)
+![data](https://user-images.githubusercontent.com/60707891/131995760-2e2734ca-161b-4482-b758-f4c4d03c8858.png)
 
 We want to find some mapping function for the same input data. Using the MVPR code we can place the vectors into a matrix as (1). This matrix of target data can be split into training, validation or test and passed directly into an MVPR class object. Alternatively, they can be passed seperately into two different instantiations, such that different polynomial orders can be used. 
 
