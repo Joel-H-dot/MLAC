@@ -48,20 +48,20 @@ class Parameter_Search:
         self.data_input = input_data  ## scale the data!
         self.data_output = target_data.squeeze()
         self.keys_FE = [
+            "ICA",
             "None",
             "K-PCA-Linear",
             "K-PCA-Sigmoid",
             "K-PCA-Polynomial",
             "K-PCA-RBF",
-            "ICA",
             #"Autoencoder",
         ]
         self.keys_CA = [
-            "KNN",
             "K-SVM-Linear",
             "K-SVM-RBF",
             "K-SVM-Polynomial",
             "K-SVM-Sigmoid",
+            "KNN",
             "LR",
             #"FCN",
         ]
