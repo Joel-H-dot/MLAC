@@ -1,7 +1,7 @@
 
 # Overview
 
-MLAC is [available on PyPI][pypi], and can be installed via
+MLAC is available on PyPi and can be installed via
 ```none
 pip install MLAC
 ```
